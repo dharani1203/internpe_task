@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reptile Cursor</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <canvas id="reptileCanvas"></canvas>
-  <script src="script.js"></script>
-</body>
-</html>
+from tkinter import *
+from tkinter.ttk import *
+
+from time import strftime
+
+root = Tk()
+root.title("clock")
+
+def time():
+    string = strftime('%H:%m:%S %p')
+    label.config(text=string)
+    label.after(1000, time)
+    
+label = Label(root, font=("Digital-7", 80), background = "black", foreground = "cyan")
+label.pack(anchor='center')
+time()
+
+mainloop()
